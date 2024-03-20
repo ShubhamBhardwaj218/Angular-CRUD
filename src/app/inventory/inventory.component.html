@@ -1,0 +1,24 @@
+<div>
+    <button type="button" (click)="navigateToModify('')" routerLinkActive="router-link-active"  class="btn btn-primary text-white m-3">Add Inventory</button>
+</div>
+
+
+<div class="container d-flex">
+  <!-- <div class="column-count"> -->
+    @for(inventory of inventories; track $index){
+    <div class="card" style="width: 18rem;" >
+        <img src={{inventory.imageUrl}} class="card-img-top" alt="...">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-item-center">
+                <h5 class="card-title">{{inventory.title}}</h5>
+                <h5 class="text-success">${{inventory.price}}</h5>
+            </div>
+          
+          <p class="card-text">{{inventory.description}}</p>
+          <button type="button" (click)="navigateToModify(inventory?.key)" class="btn btn-success me-3 mt3">Edit</button>
+          <button type="button" class="btn btn-danger" (click)="deleteInventory(inventory.key)">Delete</button>
+        </div>
+      </div>
+    }
+  <!-- </div> -->
+</div>

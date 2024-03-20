@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-lg-6">
+        <h4>Inventory Form</h4>
+        <form [formGroup]="inventoryForm" (submit)="onSubmit()">
+            <div class="mb-3">
+                <label for="title" class="form-label">title</label><span class="text-danger">*</span>
+                <input type="text" class="form-control" id="title" placeholder="title" formControlName="title">
+                @if (inventoryForm.get('title') ?. hasError('required') && inventoryForm.get('title') ?. touched) {
+                <div class="text-danger">title is required.</div>
+                }
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">price</label><span class="text-danger">*</span>
+                <input type="text" class="form-control" id="price" placeholder="price" formControlName="price">
+                @if (inventoryForm.get('price') ?. hasError('required') && inventoryForm.get('price') ?. touched) {
+                <div class="text-danger">price is required.</div>
+                }
+            </div>
+
+            <div class="mb-3">
+                <div>
+                    <label for="image" class="form-label">imagr</label><span class="text-danger">*</span>
+                <input type="text" class="form-control" id="image" placeholder="image" formControlName="image">
+                </div>
+                @if (inventoryForm.get('image') ?. hasError('required') && inventoryForm.get('image') ?. touched) {
+                <div class="text-danger">image is required.</div>
+                }
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" rows="3" formControlName="description"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Save Changes</button>
+        </form>
+    </div>
+</div>
